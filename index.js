@@ -50,7 +50,7 @@ function createCallLog (individualOrganization){
   const callHistoryDiv = document.getElementById('call-history-div');
   const logBox = document.createElement('div');
   logBox.innerHTML = `
-  <div class="call-log flex justify-between items-center rounded-lg p-3 border bg-[#fafafa]">
+  <div class="call-log flex justify-between items-center rounded-lg p-3 bg-gray-100">
     <div>
       <h1 lang="bn">${callLog.callName}</h1>
       <h1>${callLog.callNumber}</h1>
