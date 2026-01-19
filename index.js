@@ -44,7 +44,7 @@ function createCallLog (individualOrganization){
     callNumber: individualOrganization.querySelector('.call-number').innerText,
     callTime: formatTime()
   }
-  console.log(callLog);
+  alert(`Calling [Service name: ${callLog.callName}, Number: ${callLog.callNumber}]`);
   callHistory.push(callLog);
 
   const callHistoryDiv = document.getElementById('call-history-div');
