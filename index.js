@@ -25,6 +25,18 @@ function formatTime (date = new Date(), hour12 = true){
   })
 }
 
+// Function to copy call number to clipboard
+function copyCallNumber (individualOrganization){
+  const textToCopy = individualOrganization.querySelector('.call-number').innerText;
+  navigator.clipboard.writeText(textToCopy);
+
+  const copyBtnText = individualOrganization.querySelector('.copy-btn-text');
+  copyBtnText.innerText = 'Copied!';
+  setTimeout(() => {
+    copyBtnText.innerText = 'Copy';
+  }, 1500);
+}
+
 // Function to create call log upon clicking call button
 function createCallLog (individualOrganization){
   const callLog = {
@@ -54,8 +66,9 @@ document.getElementById('number-collection-section').addEventListener('click', (
   individualOrganization = e.target.closest('.individual-organization');
   if(e.target.classList.contains('heart-btn')){
     updateCount('heart-count', 1);
-  } else if(e.target.classList.contains('copy-btn')){
+  } else if(e.target.closest('button.copy-btn')){
     updateCount('copy-count', 1);
+    copyCallNumber(individualOrganization);
   } else if(e.target.closest('button.call-btn')){
     const callPossible = updateCount('coin-count', -20);
     if(callPossible){
